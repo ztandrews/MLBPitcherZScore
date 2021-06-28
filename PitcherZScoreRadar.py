@@ -14,11 +14,9 @@ The stats we will be using are:
 
 STEPS TO RUN
 1. Get the stats from a csv from this link:
-    https://baseballsavant.mlb.com/leaderboard/custom?year=
-    2021&type=pitcher&filter=&sort=5&sortDir=asc&min=75&
-    selections=p_formatted_ip,woba,xwoba,exit_velocity_avg,
-    barrel_batted_rate,hard_hit_percent,whiff_percent,
-    &chart=false&x=woba&y=woba&r=no&chartType=beeswarm
+https://baseballsavant.mlb.com/leaderboard/custom?year=2021&type=pitcher&filter=&sort=6&sortDir=asc&min=
+q&selections=p_formatted_ip,woba,xwoba,exit_velocity_avg,barrel_batted_rate,hard_hit_percent,whiff_percent,
+&chart=false&x=woba&y=woba&r=no&chartType=beeswarm
     
     Make sure Qualified pitchers is selected and press 'Download CSV'
 
