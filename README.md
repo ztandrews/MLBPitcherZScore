@@ -31,7 +31,7 @@ Something to be aware of is that these Z-Score numbers don't mean a ton until ab
 
 ## Version Updates
 ### Current Version: 1.0.1
-- Made code more efficient by getting the standard deviation and means of each column with only 2 lines of code
+- Made code more efficient by getting the standard deviation and means of each column with only 2 lines of code.
 ### Previous Version Updates
 ### 1.0.0
 - Initital Upload
