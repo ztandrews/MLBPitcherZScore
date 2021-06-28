@@ -33,7 +33,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from math import pi
 
-
 #Enter the name of the file you downloaded from Baseball Savant
 fileName = '627.csv'
 #Change this to get the player's data that we want to chart
