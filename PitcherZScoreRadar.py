@@ -14,9 +14,11 @@ The stats we will be using are:
 
 STEPS TO RUN
 1. Get the stats from a csv from this link:
-https://baseballsavant.mlb.com/leaderboard/custom?year=2021&type=pitcher&filter=&sort=6&sortDir=asc&min=
-q&selections=p_formatted_ip,woba,xwoba,exit_velocity_avg,barrel_batted_rate,hard_hit_percent,whiff_percent,
-&chart=false&x=woba&y=woba&r=no&chartType=beeswarm
+    https://baseballsavant.mlb.com/leaderboard/custom?year=
+    2021&type=pitcher&filter=&sort=5&sortDir=asc&min=q&
+    selections=p_formatted_ip,woba,xwoba,exit_velocity_avg,
+    barrel_batted_rate,hard_hit_percent,whiff_percent,
+    &chart=false&x=woba&y=woba&r=no&chartType=beeswarm
     
     Make sure Qualified pitchers is selected and press 'Download CSV'
 
@@ -33,39 +35,26 @@ from math import pi
 
 
 #Enter the name of the file you downloaded from Baseball Savant
-fileName = '26.csv'
+fileName = '627.csv'
 #Change this to get the player's data that we want to chart
-playerToChart = 'Tyler Glasnow'
+playerToChart = 'Jacob deGrom'
 
 #Read CSV file
 data = pd.read_csv (r'C:/Users/ztand/Desktop/Python/'+fileName)
 data['name'] = data[' first_name'] + ' ' + data['last_name']
 
-#Get the means of each column
-wobamean = data['woba'].mean()
-evamean = data['exit_velocity_avg'].mean()
-bbrmean = data['barrel_batted_rate'].mean()
-xwobamean = data['xwoba'].mean()
-wmean = data['whiff_percent'].mean()
-hhpmean = data['hard_hit_percent'].mean()
-
-#Get the standard deviation of each column
-wobasd = data['woba'].std()
-evasd = data['exit_velocity_avg'].std()
-bbrsd = data['barrel_batted_rate'].std()
-xwobasd = data['xwoba'].std()
-wsd = data['whiff_percent'].std()
-hhpsd = data['hard_hit_percent'].std()
+#Get the mean and standard deviation of each column in the data frame
+meanframe = data.mean(axis=0)
+stdframe = data.std(axis=0)
 
 #Create z-score columns for each player and each stat
 #Z-Score = (observed value - mean of the sample) / standard deviation of the sample
-data['woba_zscore'] = -1*((data['woba'] - wobamean) /wobasd)
-data['eva_zscore'] = -1*((data['exit_velocity_avg'] - evamean)/evasd)
-data['bbr_zscore'] = -1*((data['barrel_batted_rate']- bbrmean)/bbrsd)
-data['xwoba_zscore'] = -1*((data['xwoba'] - xwobamean) /xwobasd)
-data['whiff_zscore'] = (data['whiff_percent'] - wmean) /wsd
-data['hhp_zscore'] = -1*((data['hard_hit_percent'] - hhpmean) /hhpsd)
-
+data['woba_zscore'] = -1*((data['woba'] - meanframe.woba) /stdframe.woba)
+data['eva_zscore'] = -1*((data['exit_velocity_avg'] - meanframe.exit_velocity_avg)/stdframe.exit_velocity_avg)
+data['bbr_zscore'] = -1*((data['barrel_batted_rate']- meanframe.barrel_batted_rate)/stdframe.barrel_batted_rate)
+data['xwoba_zscore'] = -1*((data['xwoba'] - meanframe.xwoba) /stdframe.xwoba)
+data['whiff_zscore'] = (data['whiff_percent'] - meanframe.whiff_percent) /stdframe.whiff_percent
+data['hhp_zscore'] = -1*((data['hard_hit_percent'] - meanframe.hard_hit_percent) /stdframe.hard_hit_percent)
 #Create a column for each player that is a sum of their Z-Scores. This will determine the color of their chart
 data['zsc_sum'] = (data['hhp_zscore']+data['whiff_zscore']+data['xwoba_zscore']+data['bbr_zscore']+data['eva_zscore']+data['woba_zscore'] )
 zscavg = data['zsc_sum'].mean()
