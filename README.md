@@ -1,5 +1,5 @@
 # MLBPitcherZScore
-### V. 1.0.0
+### V. 1.0.1
 A Python program that shows how a hitter compares to the mean of a sample of MLB hitters in certain statistics using a Polar Chart
 (Also see [this program for MLB Hitters](https://github.com/ztandrews/MLBHitterZScore))
 
@@ -30,7 +30,8 @@ The steps to run the program are:
 Something to be aware of is that these Z-Score numbers don't mean a ton until about the All-Star break. The reason being we need a longer sample period to get an idea of what the league averages look like for every stat, and also it's always a good idea to use a larger sample size when evaluating a single player. That all being said, this program is still fun to use and it is neat to see how players stack up against eachother in terms of these vvisualizations.
 
 ## Version Updates
-#### Current Version: 1.0.0
-- Initial upload
+#### Current Version: 1.0.1
+- Made code more efficient by getting the standard deviation and means of each column with only 2 lines of code
 ### Previous Version Updates
-None
+### 1.0.0
+- Initital Upload
