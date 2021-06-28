@@ -72,10 +72,11 @@ zum = str(player['zsc_sum'])
 
 stats = ['WHIFF %', 'wOBA', 'xwOBA', 'AVG. EV', 'BARREL %','HARD HIT %']
 values = [whiff,woba,xwoba,eva,bbr,hhp]
+
+#Style and plot the Polar Chart
 font = {'family' : 'normal',
         'weight' : 'normal',
         'size'   : 30}
-#Style and plot the Polar Chart
 zscoresum = (whiff+woba+xwoba+eva+bbr+hhp)
 #The color of the chart logic. If the players sum of Z-Scores is more than the mean of the sum of every players Z-Scores, the chart will be blue. If it is less, the chart will be red
 if zscoresum < zscavg:
