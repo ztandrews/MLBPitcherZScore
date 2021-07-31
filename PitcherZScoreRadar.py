@@ -32,14 +32,17 @@ STEPS TO RUN
 import pandas as pd
 import matplotlib.pyplot as plt
 from math import pi
+import os
 
-#Enter the name of the file you downloaded from Baseball Savant
+######## Configure #######
+#Change filename to the name of the csv downloaded from baseball savant
 fileName = 'SampleData.csv'
+cwd = os.getcwd()
+data = pd.read_csv (cwd+'/'+fileName)
 #Change this to get the player's data that we want to chart
 playerToChart = 'Jacob deGrom'
 
-#Read CSV file
-data = pd.read_csv (r'C:/Users/ztand/Desktop/Projects/MLBPitcherZScore/'+fileName)
+#Create a name column
 data['name'] = data[' first_name'] + ' ' + data['last_name']
 
 #Get the mean and standard deviation of each column in the data frame
